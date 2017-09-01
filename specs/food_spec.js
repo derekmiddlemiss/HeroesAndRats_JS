@@ -13,4 +13,8 @@ describe( "Food", function(){
     assert.strictEqual( nastyPie.name, "Foul Scotch Pie" );
   });
 
+  it( "should have a replenishment value", function(){
+    assert.strictEqual( nastyPie.replenishment, 5 );
+  })
+
 });

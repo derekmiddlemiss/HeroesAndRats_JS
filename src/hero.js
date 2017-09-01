@@ -1,8 +1,8 @@
-function Hero( name, health, favFood ){
+function Hero( name, health, favFood, tasks = [] ){
   this.name = name;
   this.health = health;
   this.favFood = favFood;
-  this.tasks = [];
+  this.tasks = tasks;
 }
 
 Hero.prototype.talk = function(){

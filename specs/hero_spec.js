@@ -4,9 +4,13 @@ var Hero = require('../src/hero.js');
 describe( "Hero", function(){
 
   var hankTheRanger;
+  var nastyPie;
+  var lasagna;
 
   beforeEach( function(){
     hankTheRanger = new Hero( "Hank The Ranger", 80, "Lasagna" );
+    nastyPie = new Food( "Foul Scotch Pie", 5 );
+    lasagna = new Food( "Lasagna", 30 );
   });
 
 
@@ -28,6 +32,17 @@ describe( "Hero", function(){
 
   it( "should have an empty task list on create", function(){
     assert.strictEqual( hankTheRanger.tasks.length, 0 );
-  })
+  });
+
+  it( "should be able to eat food for replenishment, not favourite", function(){
+    hankTheRanger.eat( nastyPie );
+    assert.strictEqual( hankTheRanger.health, 85 );
+  });
+
+  it( "should be able to eat food for replenishment, favourite", function(){
+    hankTheRanger.eat( lasagna );
+    assert.strictEqual( hankTheRanger.health, 125 );
+  });
+
 
 });

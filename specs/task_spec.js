@@ -11,7 +11,10 @@ describe( "Task", function(){
 
   it( "should have a difficulty level", function(){
     assert.strictEqual( doLaundry.difficulty, 1);
-  })
+  });
 
+  it( "should have an urgency level", function(){
+    assert.strictEqual( doLaundry.urgency, 1);
+  });
 
 })

@@ -18,4 +18,8 @@ describe( "Hero", function(){
     assert.strictEqual( hankTheRanger.health, 80);
   })
 
+  it( "should have a favourite food", function(){
+    assert.strictEqual( hankTheRanger.favFood, "Lasagna" );
+  })
+
 });

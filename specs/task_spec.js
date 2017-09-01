@@ -26,8 +26,10 @@ describe( "Task", function(){
   })
 
   it( "should be completable", function(){
-    doLaundry.complete();
+    doLaundry.setComplete();
     assert.strictEqual( doLaundry.completed, true );
+    doLaundry.setIncomplete();
+    assert.strictEqual( doLaundry.completed, false );
   })
 
 })

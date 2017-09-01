@@ -5,11 +5,11 @@ Task = function( difficulty, urgency, reward, completed = false){
   this.completed = completed;
 }
 
-Task.prototype.complete = function(){
+Task.prototype.setComplete = function(){
   this.completed = true;
 }
 
-Task.prototype.incomplete = function(){
+Task.prototype.setIncomplete = function(){
   this.completed = false;
 }
 

@@ -17,4 +17,12 @@ describe( "Task", function(){
     assert.strictEqual( doLaundry.urgency, 1);
   });
 
+  it( "should have a reward", function(){
+    assert.strictEqual( doLaundry.reward, "clean laundry" );
+  });
+
+  it( "should be incomplete by default on create", function(){
+    assert.strictEqual( doLaundry.completed, false );
+  })
+
 })

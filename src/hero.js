@@ -1,8 +1,9 @@
-function Hero( name, health, favFood, tasks = [] ){
+function Hero( name, health, favFood, tasks = [], rewards = [] ){
   this.name = name;
   this.health = health;
   this.favFood = favFood;
   this.tasks = tasks;
+  this.rewards = rewards;
 }
 
 Hero.prototype.talk = function(){
@@ -19,6 +20,13 @@ Hero.prototype.eat = function( food ){
 
 Hero.prototype.addTask = function( task ){
   this.tasks.push( task );
+}
+
+Hero.prototype.completeTask = function( task ){
+  if ( this.tasks.includes( task ) && task.completed === false ){
+    task.setComplete();
+    this.rewards.push( task.reward );
+  }
 }
 
 Hero.prototype.sortTasks = function( criterion ){
@@ -44,7 +52,7 @@ Hero.prototype.sortTasks = function( criterion ){
     }
 
   })
-  
+
 }
 
 Hero.prototype.viewTasks = function( criterion ){

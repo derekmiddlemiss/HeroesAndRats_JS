@@ -3,6 +3,8 @@ Food = function( name, replenishment ){
   this.replenishment = replenishment;
 }
 
-
+Food.prototype.taint = function(){
+  this.replenishment = -10;
+}
 
 module.exports = Food;

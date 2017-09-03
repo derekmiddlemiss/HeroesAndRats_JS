@@ -2,6 +2,7 @@ var assert = require('assert');
 var Hero = require('../src/hero.js');
 var Food = require('../src/food.js');
 var Task = require('../src/task.js');
+var Rat = require('../src/rat.js')
 
 describe( "Hero", function(){
 
@@ -10,6 +11,7 @@ describe( "Hero", function(){
   var dustRoom;
   var nastyPie;
   var lasagna;
+  var nibbles;
 
   beforeEach( function(){
     hankTheRanger = new Hero( "Hank The Ranger", 80, "Lasagna" );
@@ -17,6 +19,7 @@ describe( "Hero", function(){
     dustRoom = new Task( 2, 2, "dust free room" );
     nastyPie = new Food( "Foul Scotch Pie", 5 );
     lasagna = new Food( "Lasagna", 30 );
+    nibbles = new Rat();
   });
 
 
@@ -72,5 +75,21 @@ describe( "Hero", function(){
     var taskResults = hankTheRanger.viewTasks( "incomplete" );
     assert.strictEqual( taskResults[0], dustRoom );
   });
+
+  it( "should lose health on eating tainted food", function(){
+    nibbles.taintFood( lasagna );
+    hankTheRanger.eat( lasagna );
+    assert.strictEqual( hankTheRanger.health, 65 );
+  })
+
+  it( "should start with no rewards on create", function(){
+    assert.strictEqual( hankTheRanger.rewards.length, 0 );
+  })
+
+  it( "should be able to complete tasks and gain reward", function(){
+    hankTheRanger.addTask( dustRoom );
+    hankTheRanger.completeTask( dustRoom );
+    assert.strictEqual( hankTheRanger.rewards[0], "dust free room" );
+  })
 
 });
